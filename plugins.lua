@@ -12,7 +12,8 @@ local plugins = {
         "markdown",
         "lua",
         "json",
-        "terraform"
+        "terraform",
+        "python",
       },
     },
   },
@@ -32,10 +33,44 @@ local plugins = {
         "stylua",
         "gopls",
         "marksman",
-        "terraform-ls"
+        "terraform-ls",
+        "jedi-language-server",
       }
     }
-  }
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = "go",
+    opts = function ()
+      return require "custom.configs.null-ls"
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    init = function ()
+      require("core.utils").load_mappings("dap")
+    end
+  },
+  {
+    "dreamsofcode-io/nvim-dap-go", -- TODO: switch to main branch after PR is merged
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function (_, opts)
+      require("dap-go").setup(opts)
+      require("core.utils").load_mappings("dap_go")
+    end
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function (_, opts)
+      require("gopher").setup(opts)
+      require("core.utils").load_mappings("gopher")
+    end,
+    build = function ()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
 }
 
 return plugins
