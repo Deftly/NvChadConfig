@@ -39,6 +39,14 @@ lspconfig.terraformls.setup{
   filetypes = {"terraform", "terraform-vars"},
   root_dir = util.root_pattern(".terraform", ".git"),
 }
+
+-- Python
+lspconfig.jedi_language_server.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"jedi-language-server"},
+  filetypes = {"python"},
+}
 -- local servers = {"html", "cssls", "gopls", "marksman"}
 --
 -- for _, lsp in ipairs(servers) do
