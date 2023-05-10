@@ -47,6 +47,14 @@ lspconfig.jedi_language_server.setup{
   cmd = {"jedi-language-server"},
   filetypes = {"python"},
 }
+
+-- Yaml
+lspconfig.yamlls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"yaml-language-server", "--stdio"},
+  filetypes = {"yaml", "yaml.docker-compose"},
+}
 -- local servers = {"html", "cssls", "gopls", "marksman"}
 --
 -- for _, lsp in ipairs(servers) do

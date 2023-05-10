@@ -35,6 +35,7 @@ local plugins = {
         "marksman",
         "terraform-ls",
         "jedi-language-server",
+        "yaml-language-server",
       }
     }
   },
