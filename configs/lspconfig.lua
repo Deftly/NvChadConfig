@@ -55,6 +55,15 @@ lspconfig.yamlls.setup{
   cmd = {"yaml-language-server", "--stdio"},
   filetypes = {"yaml", "yaml.docker-compose"},
 }
+
+-- Bash
+lspconfig.bashls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"bash-language-server", "start"},
+  filetypes = {"sh"},
+}
+
 -- local servers = {"html", "cssls", "gopls", "marksman"}
 --
 -- for _, lsp in ipairs(servers) do

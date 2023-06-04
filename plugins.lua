@@ -36,6 +36,7 @@ local plugins = {
         "terraform-ls",
         "jedi-language-server",
         "yaml-language-server",
+        "bash-language-server",
       }
     }
   },
